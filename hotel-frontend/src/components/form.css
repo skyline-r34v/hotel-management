@@ -1,0 +1,56 @@
+/* AddCustomerForm.css */
+
+.add-customer-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-customer-form h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .add-customer-form label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .add-customer-form input[type="text"],
+  .add-customer-form input[type="email"],
+  .add-customer-form input[type="number"],
+  .add-customer-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .add-customer-form select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M13.822 7.23L10 11.052l-3.822-3.822a1 1 0 00-1.414 1.414l4.53 4.53a1 1 0 001.415 0l4.53-4.53a1 1 0 10-1.415-1.414z" clip-rule="evenodd"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 16px;
+  }
+  
+  .add-customer-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .add-customer-form button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  

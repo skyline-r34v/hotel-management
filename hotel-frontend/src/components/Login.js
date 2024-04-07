@@ -1,6 +1,5 @@
 // LoginPage.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './styles.css'; // Import CSS file
 
 const LoginPage = () => {
@@ -13,9 +12,11 @@ const LoginPage = () => {
     if (username === 'admin' && password === 'vighnesh') {
       // Set loggedIn to true upon successful login
       setLoggedIn(true);
+      window.location.href = '/dashboard';
     } else {
       alert('Incorrect username or password. Please try again.');
     }
+
   };
 
   return (
@@ -41,7 +42,7 @@ const LoginPage = () => {
       </div>
       <button onClick={handleLogin}>Login</button>
       {/* Redirect to dashboard page upon successful login */}
-      {loggedIn && <Link to="/dashboard">Go to Dashboard</Link>}
+      
     </div>
   );
 };

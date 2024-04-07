@@ -58,7 +58,7 @@ function About() {
             <div class="about-wrapper container">
                 <div class="about-text">
                     <p class="small">About Us</p>
-                    <h2>We've been making healthy food last for 10 years.</h2>
+                    <h2>We hope you'll enjoy your stay.</h2>
                     <p>At Taj hotel, we pride ourselves on providing unparalleled hospitality and personalized service to each and every guest. Whether you're here for business or leisure, our goal is to make your stay unforgettable.</p>
                     <p>Whether you're craving a gourmet meal, a signature cocktail, or a relaxing massage, we have everything you need to unwind and rejuvenate.</p>
                 </div>
@@ -270,7 +270,7 @@ function App() {
             <About />
             <Food />
             <FoodMenu />
-            <Testimonials />
+           
             <Services />
             <Footer />
         </div>

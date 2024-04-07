@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
+import './form.css'
 
 function AddCustomerForm() {
   const [formData, setFormData] = useState({
