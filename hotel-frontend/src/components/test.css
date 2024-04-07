@@ -57,3 +57,25 @@
     display: flex;
     
   }
+
+  .dashboard {
+    background-color: #f0f0f0; /* Example background color */
+    /* Or */
+    background-image: url('../assests/dasboard-bg.jpg'); /* Example background image */
+    background-size: cover;
+    background-position: center;
+    /* Additional styling */
+    padding: 20px; /* Example padding */
+    padding-bottom: 500px;
+  }
+
+  .paid{
+    background-color: #f0f0f0; /* Example background color */
+    /* Or */
+    background-image: url('../assests/dasboard-bg.jpg'); /* Example background image */
+    background-size: cover;
+    background-position: center;
+    /* Additional styling */
+    padding: 20px; /* Example padding */
+    padding-bottom: 500px;
+  }

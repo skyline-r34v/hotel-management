@@ -36,11 +36,7 @@ const customerSchema = new mongoose.Schema({
 // Define model for the "customer" collection in the "hotel" database
 const Customer = mongoose.model('Customer', customerSchema, 'customer');
 
-app.get('/', (req,res)=> {
-    res.send("Hello")
-})
-
-// Define route to fetch all customers with status "pending"
+// Route to fetch all customers with status "pending"
 app.get('/customers', async (req, res) => {
   try {
     const customers = await Customer.find({ status: 'pending' });
@@ -50,7 +46,7 @@ app.get('/customers', async (req, res) => {
   }
 });
 
-// Define route to fetch details of a specific customer
+// Route to fetch details of a specific customer
 app.get('/customers/:id', async (req, res) => {
   const customerId = req.params.id;
   try {
@@ -64,7 +60,7 @@ app.get('/customers/:id', async (req, res) => {
   }
 });
 
-// Define route to add a customer
+// Route to add a customer
 app.post('/customers/add', async (req, res) => {
   try {
     const { name, email, members, roomType, daysOfStay, status } = req.body;
@@ -76,7 +72,7 @@ app.post('/customers/add', async (req, res) => {
   }
 });
 
-// Define route to calculate and update total amount for a specific customer
+// Route to calculate and update total amount for a specific customer
 app.put('/customers/:id/calculate-total', async (req, res) => {
   const customerId = req.params.id;
   try {
@@ -113,7 +109,22 @@ app.put('/customers/:id/calculate-total', async (req, res) => {
   }
 });
 
-// Define route to update status from pending to paid
+// Route to update customer details
+app.put('/customers/:id/update', async (req, res) => {
+  const customerId = req.params.id;
+  try {
+    const { name, email, members, roomType, daysOfStay } = req.body;
+    const updatedCustomer = await Customer.findByIdAndUpdate(customerId, { name, email, members, roomType, daysOfStay }, { new: true });
+    if (!updatedCustomer) {
+      return res.status(404).json({ message: 'Customer not found' });
+    }
+    res.json({ message: 'Customer details updated successfully', updatedCustomer });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Route to update status from pending to paid
 app.put('/customers/:id/update-status', async (req, res) => {
   const customerId = req.params.id;
   try {
@@ -132,7 +143,7 @@ app.put('/customers/:id/update-status', async (req, res) => {
   }
 });
 
-// Define route to fetch all customers with status "paid"
+// Route to fetch all customers with status "paid"
 app.get('/customers-paid', async (req, res) => {
   try {
     const customers = await Customer.find({ status: 'paid' });
@@ -141,5 +152,20 @@ app.get('/customers-paid', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+// Route to delete a customer
+app.delete('/customers/:id', async (req, res) => {
+  const customerId = req.params.id;
+  try {
+    const deletedCustomer = await Customer.findByIdAndDelete(customerId);
+    if (!deletedCustomer) {
+      return res.status(404).json({ message: 'Customer not found' });
+    }
+    res.json({ message: 'Customer deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 
 app.listen(PORT, () => console.log(`Server started at ${PORT}`));
